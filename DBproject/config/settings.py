@@ -41,7 +41,10 @@ DJANGO_APPS = [
 
 THIRD_PARTY_APPS = ["django_countries"]
 
-PROJECT_APPS = ["users.apps.UsersConfig"]
+PROJECT_APPS = [
+    "users.apps.UsersConfig",
+    "employees.apps.EmployeesConfig",
+]
 
 
 
