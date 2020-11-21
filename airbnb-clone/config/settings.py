@@ -25,7 +25,7 @@ SECRET_KEY = "25(%c)%8z^&r59=xk4kelpj-pph0fydqyqlc3$f53+x!nj7lca"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = "*"
 
 
 # Application definition
@@ -39,14 +39,13 @@ DJANGO_APPS = [
     "django.contrib.staticfiles",
 ]
 
-THIRD_PARTY_APPS = ["django_countries", "django_seed"]
+THIRD_PARTY_APPS = ["django_countries", "django_seed", "djreservation"]
 
 PROJECT_APPS = [
     "core.apps.CoreConfig",
     "users.apps.UsersConfig",
     "rooms.apps.RoomsConfig",
     "reviews.apps.ReviewsConfig",
-    "reservations.apps.ReservationsConfig",
     "lists.apps.ListsConfig",
     "conversations.apps.ConversationsConfig",
 ]
@@ -61,6 +60,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "djreservation.middleware.ReservationMiddleware",
 ]
 
 ROOT_URLCONF = "config.urls"
@@ -133,8 +133,14 @@ USE_TZ = True
 
 STATIC_URL = "/static/"
 
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
+
 AUTH_USER_MODEL = "users.User"
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "uploads")
 
 MEDIA_URL = "/media/"  # /를 앞에다가 놓으면 절대경로로 설정한다. 근데 아직 사진은 못보인다. 사진을 보이도록 할거다.
+
+DEFAULT_FROM_EMAIL = "wth0086@naver.com"
+EMAIL_HOST = "localhost"
+EMAIL_PORT = "1025"
