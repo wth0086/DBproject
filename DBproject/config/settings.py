@@ -46,7 +46,9 @@ PROJECT_APPS = [
     "rooms.apps.RoomsConfig",
     "reservations.apps.ReservationsConfig",
     "complaints.apps.ComplaintsConfig",
+    "employees.apps.EmployeesConfig",
 ]
+
 
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + PROJECT_APPS
