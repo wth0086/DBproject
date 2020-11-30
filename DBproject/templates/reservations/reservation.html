@@ -1,5 +1,14 @@
 {% block content %}
 <form method="GET" action="{% url "reservations:reservation" %}">
     {{form.as_p}}
+    <button>Search</button>
 </form>
 {% endblock content %}
+
+{% if result %}
+<h3>Result</h3>
+{% for room_type in result %}
+{{room_type}}<br>
+{% endfor %}
+<button type="button" onclick="location.href='reservate'">Reserve</button>
+{% endif %}
