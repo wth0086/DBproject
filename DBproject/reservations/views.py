@@ -29,6 +29,12 @@ def search(request):
                         break
                     if date == difference.days:
                         result.append(obj.get().roomtype)
+                else:
+                    if i == 0:
+                        result.append("Deluxe")
+                    if i == 1:
+                        result.append("Business")
+                        result = list(set(result))
     else:
         form = forms.ReservationForm()
 
