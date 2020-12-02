@@ -12,8 +12,9 @@
 
         <form action="{% url 'employees:check' %}" method="post">
             {% csrf_token %}
-            ID : <input type="text" name="ID"></br>
-            PW : <input type="password" name="PW"></br>
+            ID : <input type="text" placeholder="아이디" name="ID"></br>
+            PW : <input type="password" placeholder="비밀번호" name="PW"></br>
+            <span style="color:red;"><strong>{{ error }}</strong> </span></br>
             <input type="submit" value="로그인"><input type="button" value = "회원가입" onclick="location.href='http://127.0.0.1:8000/employees/reg/'"></br>
 
         </form>

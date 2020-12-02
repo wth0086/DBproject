@@ -10,10 +10,11 @@
     <body>
         <p>회원가입 (직원)</p>
 
-        <form action="{% url 'employees:check' %}" method="post">
+        <form action="{% url 'employees:regCon' %}" method="post">
             {% csrf_token %}
             ID : <input type="text" name="ID"></br>
-            PW : <input type="password" name="PW"></br>
+            PW : <input type="password" name="PW1"></br>
+            Confirm_PW : <input type="password" name="PW2"></br>
             name : <input type="text" name="name"></br>
             gender : <input type="radio" name="gender" value="male">남성
                     <input type="radio" name="gender" value="female">여성</br>
@@ -27,6 +28,7 @@
             birthdate : <input type="date" name="birthdate"></br>
             address : <input type="text" name="address"></br>
             phone_number : <input type="text" name="phone_number"></br>
+            <span style="color:red;"><strong>{{ error }}</strong> </span></br>
             <input type="submit" value="등록"></br>
         </form>
     </body>
