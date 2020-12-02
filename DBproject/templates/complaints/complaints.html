@@ -1,1 +1,14 @@
-<a href="{% url 'complain_text' %}">complain_text로 가기</a>
+<h1>Complains</h1>
+
+<a href="{% url 'complain_text' %}">new_complain</a>
+
+{% for complains in complain_list %}
+    <p>customer_ID: {{ complains.customer_ID }}</p>
+    <p>date: {{ complains.date }}</p>
+    <p>complain_type: {{ complains.complain_type }}</p>
+    <p>room_number: {{ complains.room_number }}</p>
+    <p>employee_ID: {{ complains.employee_ID }}</p>
+    <p>work_type: {{ complains.work_type }}</p>
+    <p>complain_message: {{ complains.complain_message }}</p>
+    <hr>
+{% endfor %}

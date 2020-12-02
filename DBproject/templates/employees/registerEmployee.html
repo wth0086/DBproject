@@ -8,9 +8,9 @@
     </head>
 
     <body>
-        <p>Register Employee</p>
+        <p>회원가입 (직원)</p>
 
-        <form action="{% url 'employees:regCon' %}" method="post">
+        <form action="{% url 'employees:check' %}" method="post">
             {% csrf_token %}
             ID : <input type="text" name="ID"></br>
             PW : <input type="password" name="PW"></br>

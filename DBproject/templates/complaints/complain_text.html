@@ -1,4 +1,6 @@
 <h1>COMPLAIN_TEXT</h1>
-<h3>컴플레인 상세사항</h3>
 
-<a href="{% url 'complaints' %}">complaints</a>
+<form method="POST" class="post-form"> {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+</form>

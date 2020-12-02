@@ -10,11 +10,11 @@
     <body>
         <p>Employee Login</p>
 
-        <form action="{url 'employees:state'}" method="post">
+        <form action="{% url 'employees:check' %}" method="post">
             {% csrf_token %}
             ID : <input type="text" name="ID"></br>
             PW : <input type="password" name="PW"></br>
-            <input type="submit" value="로그인"><input type="button" value = "회원가입" onclick="location.href='http://127.0.0.1:8000/employees/Information'"></br>
+            <input type="submit" value="로그인"><input type="button" value = "회원가입" onclick="location.href='http://127.0.0.1:8000/employees/reg/'"></br>
 
         </form>
     </body>
