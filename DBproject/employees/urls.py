@@ -6,6 +6,7 @@ app_name = "employees"
 urlpatterns = [
     path("login/", views.login_page, name="login"),
     path("check/", views.loginEmployee, name="check"),
+    path("<str:ID>/checkPW/", views.checkPW, name="checkPW"),
     path("reg/", views.regEmployee, name="reg"),
     path("regCon/", views.regConEmployee, name="regCon"),
     path("emAll/", views.readEmployeeAll, name="emAll"),
