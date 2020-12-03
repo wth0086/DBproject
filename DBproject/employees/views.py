@@ -125,3 +125,12 @@ def delConEmployee(request, ID):
                 res_data['error'] = "비밀번호를 틀렸습니다."
 
         return render(request, 'employees/checkPW.html', res_data)
+
+def searchByWorktype(request):
+    if request.method == "POST":
+        worktype = request.POST.get('worktype', None)
+        if(worktype == "---- 선택 ----"):
+            return render(request, 'employees/emAll.html')
+        qs = Employee.objects.filter(e_work_type = worktype)
+        context = {'By_Worktype': qs}
+        return render(request, 'employees/ByworkEmplo.html', context)

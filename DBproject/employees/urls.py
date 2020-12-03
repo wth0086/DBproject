@@ -10,6 +10,7 @@ urlpatterns = [
     path("reg/", views.regEmployee, name="reg"),
     path("regCon/", views.regConEmployee, name="regCon"),
     path("emAll/", views.readEmployeeAll, name="emAll"),
+    path("search/", views.searchByWorktype, name="search"),
     path("<str:ID>/info/", views.Employeeinfo, name="information"),
     path("<str:ID>/mod/", views.readEmployeeOne, name="Modify"),
     path("modCon/", views.modConEmployee, name="modCon"),

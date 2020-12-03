@@ -63,7 +63,7 @@
                             <input type="radio" name="work_type[]" value="other">그 외</br>
                 birthdate : <input type="date" name="birthdate" value={{Employee_info.e_birthdate}}></br>
                 address : <input type="text" name="address" value={{Employee_info.e_address}}></br>
-                phone_number : <input type="text" name="phone_number" value={{Employee_info.e_phone_number}}></br>
+                phone_number : <input type="text" pattern="\d{3}-\d{3,4}-\d{4}" placeholder="010-0000-0000" name="phone_number" value={{Employee_info.e_phone_number}}></br>
                 <input type="submit" value="수정">
                 <input type="button" value = "돌아가기" onclick="location.href='http://127.0.0.1:8000/employees/emAll/'"></br>
             </form>

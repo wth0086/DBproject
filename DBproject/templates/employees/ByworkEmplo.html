@@ -7,10 +7,18 @@
         <title>E-Table</title>
     </head>
 
+    <script language="javascript">
+        function check(){
+         i=document.join.worktype.selectedIndex; // 선택항목의 인덱스 번호
+         var worktype=document.join.worktype.options[i].value; // 선택항목 value
+         document.join.work.value=worktype;
+        }
+    </script>
+
     <body>
         <p>Employees Table</p>
 
-        {% if Employee_list %}
+        {% if By_Worktype %}
         <ol>
             <table border="1">
                 <th>ID</th> <th>이름</th> <th> 업무 종류
@@ -30,10 +38,10 @@
                     </form>
                 </th> <th>휴대폰 번호</th> <th>누적 업무</th>
                 <tr>
-                    {% for e in Employee_list %}
+                    {% for e in By_Worktype %}
                     <td><a href="{% url 'employees:information' e.e_ID %}">{{e.e_ID}}</a></td>
                     <td>{{e.e_name}}</td>
-                    <td>{{e.e_work_type}}</td>
+                    <td>{{e.e_work_type}}
                     <td>{{e.e_phone_number}}</td>
                     <td>&nbsp;<button href="#none">추가</button><button href="#none">제거</button></td>
                 </tr>
@@ -47,6 +55,7 @@
         </br>
 
         <input type="button" value = "새로운 직원 등록" onclick="location.href='http://127.0.0.1:8000/employees/reg/'">
+        <input type="button" value = "직원 전체 화면으로 돌아가기" onclick="location.href='http://127.0.0.1:8000/employees/emAll/'">
     
 
     </body>

@@ -64,9 +64,10 @@
                         <input type="radio" name="work_type[]" value="other">그 외</br>
             birthdate : <input type="date" name="birthdate"></br>
             address : <input type="text" name="address"></br>
-            phone_number : <input type="text" name="phone_number"></br>
+            phone_number : <input type="text" pattern="\d{3}-\d{3,4}-\d{4}" placeholder="010-0000-0000" name="phone_number"></br>
             <span style="color:red;"><strong>{{ error }}</strong> </span></br>
-            <input type="submit" value="등록"></br>
+            <input type="submit" value="등록"> 
+            <input type="button" value = "로그인화면으로" onclick="location.href='http://127.0.0.1:8000/employees/login/'"></br>
         </form>
     </body>
 
