@@ -11,21 +11,21 @@ class complain_type(models.Model):
 
 class Complain(models.Model):
     
-    TYPE_HOUSEMAN = "houseman"
-    TYPE_LONDRY = "londry"
-    TYPE_OPERATOR = "operator"
-    TYPE_RECEPTION = "reception"
-    TYPE_RESERVATION = "reservation"
-    TYPE_ROOMMAID = "roommaid"
+    TYPE_1 = "1"
+    TYPE_2 = "2"
+    TYPE_3 = "3"
+    TYPE_A = "A"
+    TYPE_B = "B"
+    TYPE_C = "C"
     TYPE_OTHER = "other"
     
     TYPE_CHOICES = [
-        (TYPE_HOUSEMAN, "Houseman"),
-        (TYPE_LONDRY, "Londry"),
-        (TYPE_OPERATOR, "Operator"),
-        (TYPE_RECEPTION, "Reception"),
-        (TYPE_RESERVATION, "Reservation"),
-        (TYPE_ROOMMAID, "Room maid"),
+        (TYPE_1, "room clean after checkout"),
+        (TYPE_2, "room clean by client request"),
+        (TYPE_3, "room clean by complain"),
+        (TYPE_A, "delivery amenity"),
+        (TYPE_B, "delivery client things"),
+        (TYPE_C, "add extra bed"),
         (TYPE_OTHER, "Other"),
         ]
         
@@ -34,7 +34,7 @@ class Complain(models.Model):
     complain_type = models.ForeignKey(complain_type, on_delete=models.CASCADE)
     room_number = models.ForeignKey(Room, on_delete=models.CASCADE)
     employee_ID = models.ForeignKey(Employee, on_delete=models.CASCADE)
-    work_type = models.CharField(choices=TYPE_CHOICES, max_length=20, blank=True)
+    problem_type = models.CharField(choices=TYPE_CHOICES, max_length=30, blank=True)
     complain_message = models.CharField(max_length=100)
 
     def __str__(self):

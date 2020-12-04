@@ -5,7 +5,7 @@
 
 <ol>
     <table border="1">
-        <th>customer_ID</th> <th>date</th> <th>complain_type</th> <th>room_number</th> <th>employee_ID</th> <th>work_type</th> <th>complain_message</th>
+        <th>customer_ID</th> <th>date</th> <th>complain_type</th> <th>room_number</th> <th>employee_ID</th> <th>problem_type</th> <th>complain_message</th>
         <tr>
         {% for complains in complain_list %}
             <td>{{ complains.customer_ID }} </td>
@@ -13,7 +13,7 @@
             <td>{{ complains.complain_type }}</td>
             <td>{{ complains.room_number }}</td>
             <td>{{ complains.employee_ID }}</td>
-            <td>{{ complains.work_type }}</td>
+            <td>{{ complains.problem_type }}</td>
             <td>{{ complains.complain_message }}</td>
         </tr>
         {% endfor %}
