@@ -48,3 +48,6 @@ class Room(core_models.TimeStampedModel):
     )
     amenities = models.ManyToManyField(Amenity, related_name="rooms", blank=True)
     room_state = models.BooleanField(default=True)
+
+    def __str__(self):
+        return self.room_number

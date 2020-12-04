@@ -1,0 +1,34 @@
+<h1>COMPLAIN_TEXT</h1>
+
+{% if By_Worktype %}
+    <form name="checkstate" action="{% url 'checkstate' %}" method="POST" target="1">
+        {% csrf_token %}
+        업무 종류별 맡고 있는 누적업무량 확인 : <select name='worktype'>
+            <option value='' selected>---- 선택 ----</option>
+            <option value='houseman'>houseman</option>
+            <option value='londry'>londry</option>
+            <option value='operator'>operator</option>
+            <option value='reception'>reception</option>
+            <option value='reservation'>reservation</option>
+            <option value='roommaid'>roommaid</option>
+            <option value='other'>other</option>
+        </select>
+    <input type="submit" value = "검색">
+    </form>
+    <ol>
+        <table border="1">
+            <th>ID</th> <th>이름</th> <th>업무 종류</th><th>누적 업무</th>
+            <tr>
+                {% for e in By_Worktype %}
+                <td>{{e.e_ID}}</td>
+                <td>{{e.e_name}}</td>
+                <td>{{e.e_work_type}}</td>
+                <td>&nbsp;<button href="#none">추가</button></td>
+            </tr>
+                {% endfor %}
+        </table>
+    </ol>
+    {% else %}
+        <p>Employee : 0</p>
+        <input type="button" value = "전체 컴플레인 확인" onclick="location.href='http://127.0.0.1:8000/complaints/'">
+    {% endif %}

@@ -2,13 +2,18 @@
 
 <a href="{% url 'complain_text' %}">new_complain</a>
 
-{% for complains in complain_list %}
-    <p>customer_ID: {{ complains.customer_ID }}</p>
-    <p>date: {{ complains.date }}</p>
-    <p>complain_type: {{ complains.complain_type }}</p>
-    <p>room_number: {{ complains.room_number }}</p>
-    <p>employee_ID: {{ complains.employee_ID }}</p>
-    <p>work_type: {{ complains.work_type }}</p>
-    <p>complain_message: {{ complains.complain_message }}</p>
-    <hr>
-{% endfor %}
+
+<ol>
+    <table border="1">
+        <th>customer_ID</th> <th>date</th> <th>complain_type</th> <th>room_number</th> <th>employee_ID</th> <th>work_type</th> <th>complain_message</th>
+        <tr>
+        {% for complains in complain_list %}
+            <td>{{ complains.customer_ID }} </td>
+            <td>{{ complains.date }}</td>
+            <td>{{ complains.complain_type }}</td>
+            <td>{{ complains.room_number }}</td>
+            <td>{{ complains.employee_ID }}</td>
+            <td>{{ complains.work_type }}</td>
+            <td>{{ complains.complain_message }}</td>
+        </tr>
+        {% endfor %}

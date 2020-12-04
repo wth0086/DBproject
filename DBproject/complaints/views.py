@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.utils import timezone
-from .models import Complain
+from .models import Complain, Employee
 from .forms import ComplainForm
 
 
@@ -23,3 +23,10 @@ def complain_text(request):
         form = ComplainForm()
 
     return render(request, 'complaints/complain_text.html', {'form': form})
+
+def checkstate(request):
+    if request.method == "POST":
+        worktype = request.POST.get('worktype', None)
+        qs = Employee.objects.filter(e_work_type = worktype)
+        context = {'By_Worktype': qs}
+        return render(request, 'complaints/checkstate.html', context)
