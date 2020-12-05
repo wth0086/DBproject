@@ -35,7 +35,7 @@
                     <td>{{e.e_name}}</td>
                     <td>{{e.e_work_type}}</td>
                     <td>{{e.e_phone_number}}</td>
-                    <td>{{e.complain_code}}<button href="#none">제거</button></td>
+                    <td>{{e.complain_code}}</td>
                 </tr>
             {% endfor %}
             </table>
@@ -47,6 +47,7 @@
         </br>
 
         <input type="button" value = "새로운 직원 등록" onclick="location.href='http://127.0.0.1:8000/employees/reg/'">
+        <input type="button" value = "컴플레인 목록(상세내용확인)" onclick="location.href='http://127.0.0.1:8000/complaints/'">
     
 
     </body>
