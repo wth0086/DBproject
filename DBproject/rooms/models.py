@@ -39,7 +39,7 @@ class Amenity(AbstractItem):
 
 
 class Room(core_models.TimeStampedModel):
-    room_number = models.CharField(max_length=5)
+    room_number = models.CharField(max_length=5, primary_key=True)
     room_type = models.ForeignKey(
         RoomType, related_name="rooms", on_delete=models.SET_NULL, null=True
     )

@@ -3,9 +3,9 @@ Log In
 {% endblock page_title %}
 
 {% block content %}
-<from method="POST" action="{% url "users:login" %}">
+<form method="POST" action="{% url "users:login" %}">
     {% csrf_token %}
     {{form.as_p}}
     <button>Login</button>
-</from>
+</form>
 {% endblock content %}

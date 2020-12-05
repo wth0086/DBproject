@@ -84,6 +84,7 @@ def modConEmployee(request):
     birthdate = request.POST['birthdate']
     address = request.POST['address']
     phone_number = request.POST['phone_number']
+    complain_code = request.POST['complain_code']
     res_data = {}
 
     e_qs = Employee.objects.get(e_ID=ID)
@@ -101,6 +102,7 @@ def modConEmployee(request):
         e_qs.e_birthdate = birthdate
         e_qs.e_address = address
         e_qs.e_phone_number = phone_number
+        e_qs.complain_code = complain_code
         e_qs.save()
         return HttpResponseRedirect(reverse('employees:emAll'))
 
