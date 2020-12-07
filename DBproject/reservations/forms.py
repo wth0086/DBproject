@@ -15,7 +15,7 @@ class ReservationForm(forms.Form):
 class Reservate(forms.ModelForm):
     class Meta:
         model = models.Reservation
-        fields = (  # 기존의 위젯을 살릴 방법이 없을까?
+        fields = (  # 기존의 위젯을 살릴 방법이 없을까? -> 노마드 20.10강 강의에서 나옴
             "user",
             "checkin",
             "checkout",
@@ -27,6 +27,13 @@ class Reservate(forms.ModelForm):
             "cardExpMonth",
             "additionalService",
         )
+        widgets = {
+            "checkin": forms.SelectDateWidget,
+            "checkout": forms.SelectDateWidget,
+            "cardExpYear": forms.TextInput(attrs={"placeholder": "YYYY"}),
+            "cardExpMonth": forms.TextInput(attrs={"placeholder": "MM"}),
+            "additionalService": forms.CheckboxSelectMultiple,
+        }
 
     def save(self, *args, **kwargs):
         reservation = super().save(commit=False)

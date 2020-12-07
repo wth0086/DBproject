@@ -4,8 +4,12 @@ from . import models
 
 class LoginForm(forms.Form):
 
-    username = forms.CharField()
-    password = forms.CharField(widget=forms.PasswordInput)
+    username = forms.CharField(
+        widget=forms.TextInput(attrs={"placeholder": "UserName"})
+    )
+    password = forms.CharField(
+        widget=forms.PasswordInput(attrs={"placeholder": "Password"})
+    )
 
     def clean(self):
         username = self.cleaned_data.get("username")
@@ -22,12 +26,22 @@ class LoginForm(forms.Form):
 
 class SignUpForm(forms.Form):
 
-    first_name = forms.CharField(max_length=80)
-    last_name = forms.CharField(max_length=80)
-    email = forms.EmailField()
-    username = forms.CharField()
-    password = forms.CharField(widget=forms.PasswordInput)
-    password1 = forms.CharField(widget=forms.PasswordInput, label="Confirm Password")
+    first_name = forms.CharField(
+        widget=forms.TextInput(attrs={"placeholder": "First Name"})
+    )
+    last_name = forms.CharField(
+        widget=forms.TextInput(attrs={"placeholder": "Last Name"})
+    )
+    email = forms.EmailField(widget=forms.EmailInput(attrs={"placeholder": "E-MAIL"}))
+    username = forms.CharField(
+        widget=forms.TextInput(attrs={"placeholder": "UserName"})
+    )
+    password = forms.CharField(
+        widget=forms.PasswordInput(attrs={"placeholder": "Password"})
+    )
+    password1 = forms.CharField(
+        widget=forms.PasswordInput(attrs={"placeholder": "Confirm Password"})
+    )
 
     def clean_username(self):
         username = self.cleaned_data.get("username")

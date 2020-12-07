@@ -50,8 +50,8 @@ class Reservation(core_models.TimeStampedModel):
     )
     card = models.CharField(choices=CARD_CHOICES, max_length=20, blank=True)
     cardNum = models.IntegerField(blank=True, null=True)
-    cardExpYear = models.CharField(default="****", max_length=4)
-    cardExpMonth = models.CharField(default="**", max_length=2)
+    cardExpYear = models.CharField(max_length=4)
+    cardExpMonth = models.CharField(max_length=2)
     additionalService = models.ManyToManyField(
         AdditionalService,
         blank=True,

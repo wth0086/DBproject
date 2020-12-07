@@ -9,7 +9,7 @@ class LoginView(FormView):
 
     template_name = "users/login.html"
     form_class = forms.LoginForm
-    success_url = reverse_lazy("core:home")
+    success_url = reverse_lazy("reservations:reservation")
 
     def form_valid(self, form):
         username = form.cleaned_data.get("username")

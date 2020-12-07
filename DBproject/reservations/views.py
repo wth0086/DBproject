@@ -32,6 +32,7 @@ def search(request):
                 else:
                     if i == 0:
                         result.append("Deluxe")
+                        result = list(set(result))
                     if i == 1:
                         result.append("Business")
                         result = list(set(result))
