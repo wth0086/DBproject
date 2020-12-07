@@ -8,26 +8,66 @@
     </head>
 
     <body>
-        <p>Register Employee</p>
+        <p>회원가입 (직원)</p>
 
-        <form action="{% url 'employees:regCon' %}" method="post">
+        <script type="text/javascript">
+            function CheckForm(Join){
+        
+                //체크박스 체크여부 확인 [동일 이름을 가진 체크박스 여러개일 경우]
+                var isgenderChk = false;
+                var arr_gender = document.getElementsByName("gender[]");
+                for(var i=0;i<arr_gender.length;i++){
+                    if(arr_gender[i].checked == true) {
+                        isgenderChk = true;
+                        break;
+                    }
+                }
+            
+                if(!isgenderChk){
+                    alert("성별을 선택해주세요.");
+                    return false;
+                }
+
+                var isworktypeChk = false;
+                var arr_worktype = document.getElementsByName("work_type[]");
+                for(var i=0;i<arr_worktype.length;i++){
+                    if(arr_worktype[i].checked == true) {
+                        isworktypeChk = true;
+                        break;
+                    }
+                }
+            
+                if(!isworktypeChk){
+                    alert("업무 유형을 선택해주세요.");
+                    return false;
+                }
+        
+            }
+         </script>
+        
+        
+
+        <form name="reg" action="{% url 'employees:regCon' %}" onSubmit="return CheckForm(this)" method="post">
             {% csrf_token %}
             ID : <input type="text" name="ID"></br>
-            PW : <input type="password" name="PW"></br>
+            PW : <input type="password" name="PW1"></br>
+            Confirm_PW : <input type="password" name="PW2"></br>
             name : <input type="text" name="name"></br>
-            gender : <input type="radio" name="gender" value="male">남성
-                    <input type="radio" name="gender" value="female">여성</br>
-            work_type : <input type="radio" name="work_type" value="houseman">하우스맨
-                        <input type="radio" name="work_type" value="londry">론드리
-                        <input type="radio" name="work_type" value="operator">오퍼레이터
-                        <input type="radio" name="work_type" value="reception">리셉션
-                        <input type="radio" name="work_type" value="reservation">예약부
-                        <input type="radio" name="work_type" value="roommaid">룸메이드
-                        <input type="radio" name="work_type" value="other">그 외</br>
+            gender : <input type="radio" name="gender[]" value="male">남성
+                    <input type="radio" name="gender[]" value="female">여성</br>
+            work_type : <input type="radio" name="work_type[]" value="houseman">하우스맨
+                        <input type="radio" name="work_type[]" value="londry">론드리
+                        <input type="radio" name="work_type[]" value="operator">오퍼레이터
+                        <input type="radio" name="work_type[]" value="reception">리셉션
+                        <input type="radio" name="work_type[]" value="reservation">예약부
+                        <input type="radio" name="work_type[]" value="roommaid">룸메이드
+                        <input type="radio" name="work_type[]" value="other">그 외</br>
             birthdate : <input type="date" name="birthdate"></br>
             address : <input type="text" name="address"></br>
-            phone_number : <input type="text" name="phone_number"></br>
-            <input type="submit" value="등록"></br>
+            phone_number : <input type="text" pattern="\d{3}-\d{3,4}-\d{4}" placeholder="010-0000-0000" name="phone_number"></br>
+            <span style="color:red;"><strong>{{ error }}</strong> </span></br>
+            <input type="submit" value="등록"> 
+            <input type="button" value = "로그인화면으로" onclick="location.href='http://127.0.0.1:8000/employees/login/'"></br>
         </form>
     </body>
 

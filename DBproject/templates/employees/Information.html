@@ -18,6 +18,7 @@
             birthdate : {{Employee_info.e_birthdate}}</br>
             address : {{Employee_info.e_address}}</br>
             phone_number : {{Employee_info.e_phone_number}}</br>
+            complain_code : {{Employee_info.complain_code}}</br>
         {% else %}
             <p> Employee : 0 </p>
         {% endif %}
@@ -25,7 +26,7 @@
         </br>
 
         <a href="{% url 'employees:Modify' Employee_info.e_ID %}">수정</a>
-        <a href="{% url 'employees:Delete' Employee_info.e_ID %}">삭제</a>
+        <a href="{% url 'employees:checkPW' Employee_info.e_ID %}">삭제</a>
         <a href="{% url 'employees:emAll' %}">직원 리스트</a>
         <a href="{% url 'employees:reg' %}">새로운 직원등록</a>
     

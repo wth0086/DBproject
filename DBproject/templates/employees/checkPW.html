@@ -1,0 +1,27 @@
+<! DOCTYPE html>
+
+
+<html>
+    <head>
+        <meta http-equiv="content-Type" content="text/html"; charset=UFF-8>
+        <title>check PW</title>
+    </head>
+
+    <body>
+        <p>Check Password</p>
+
+        {% if Employee_info %}
+            <form action="{% url 'employees:Delete' Employee_info.e_ID %}" method="post">
+                {% csrf_token %}
+                ID : {{Employee_info.e_ID}}</br>
+                    <input type="hidden" name="ID" value={{Employee_info.e_ID}}>
+                Password : <input type="password" placeholder="비밀번호" name="PW"></br>
+                <input type="submit" value="삭제"><input type="button" value = "돌아가기" onclick="location.href='http://127.0.0.1:8000/employees/emAll/'"></br>
+        {% else %}
+            <span style="color:red;"><strong>{{ error }}</strong> </span></br>
+            <input type="button" value = "돌아가기" onclick="location.href='http://127.0.0.1:8000/employees/emAll/'"></br>
+        {% endif %}
+        </form>
+    </body>
+
+</html>

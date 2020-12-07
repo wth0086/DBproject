@@ -1,4 +1,19 @@
 <h1>COMPLAIN_TEXT</h1>
-<h3>컴플레인 상세사항</h3>
-
-<a href="{% url 'complaints' %}">complaints</a>
+<form name="checkstate" action="{% url 'checkstate' %}" method="POST" target="1">
+    {% csrf_token %}
+    업무 종류별 맡고 있는 누적업무량 확인 : <select name='worktype'>
+        <option value='' selected>---- 선택 ----</option>
+        <option value='houseman'>houseman</option>
+        <option value='londry'>londry</option>
+        <option value='operator'>operator</option>
+        <option value='reception'>reception</option>
+        <option value='reservation'>reservation</option>
+        <option value='roommaid'>roommaid</option>
+        <option value='other'>other</option>
+    </select>
+<input type="submit" value = "검색">
+</form>
+<form method="POST" action=""> {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+</form>

@@ -53,14 +53,13 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Room',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('created', models.DateTimeField(auto_now_add=True)),
                 ('updated', models.DateTimeField(auto_now=True)),
-                ('room_number', models.CharField(max_length=5)),
+                ('room_number', models.CharField(max_length=5, primary_key=True, serialize=False)),
                 ('room_state', models.BooleanField(default=True)),
                 ('amenities', models.ManyToManyField(blank=True, related_name='rooms', to='rooms.Amenity')),
-                ('bed_type', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='rooms', to='rooms.BedType')),
-                ('room_type', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='rooms', to='rooms.RoomType')),
+                ('bed_type', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='rooms', to='rooms.bedtype')),
+                ('room_type', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='rooms', to='rooms.roomtype')),
             ],
             options={
                 'abstract': False,

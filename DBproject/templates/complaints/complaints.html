@@ -1,1 +1,29 @@
-<a href="{% url 'complain_text' %}">complain_text로 가기</a>
+<h1>Complains</h1>
+
+<input type="button" value = "새로운 컴플레인 작성" onclick="location.href='http://127.0.0.1:8000/complain_text/'">
+<input type="button" value = "직원 목록(업무확인가능)" onclick="location.href='http://127.0.0.1:8000/employees/emAll/'">
+
+
+<ol>
+    <table border="1">
+        <th>complain_number</th> <th>customer_ID</th> <th>date</th> <th>complain_type</th> <th>room_number</th> 
+        <th>employee_ID</th> <th>problem_type</th> <th>complain_message</th> <th>complain_code</th>
+        <tr>
+        {% for complains in complain_list %}
+            <td>{{ complains.complain_number }} </td>
+            <td>{{ complains.customer_ID }} </td>
+            <td>{{ complains.date }}</td>
+            <td>{{ complains.complain_type }}</td>
+            <td>{{ complains.room_number }}</td>
+            <td>{{ complains.employee_ID }}</td>
+            <td>{{ complains.problem_type }}</td>
+            <td>{{ complains.complain_message }}</td>
+            <td> 
+                <form action="{% url 'savestate' complains.complain_number %}" method="post">
+                    {% csrf_token %}
+                    {{ complains.complain_code }}
+                    <input type="submit" value = "코드생성">
+                </form> 
+            </td>
+        </tr>
+        {% endfor %}
